@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.weather__card-temp {
+.weather__temp {
   font-size: 36px;
   line-height: 40px;
   margin: 0;
@@ -15,7 +15,7 @@
   left: 16px;
 }
 
-.weather__card-temp {
+.weather__card-image {
   object-fit: cover;
   object-position: right top;
   width: 100%;

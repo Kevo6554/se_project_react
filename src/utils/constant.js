@@ -60,6 +60,15 @@ export const weatherConditions = [
     url: new URL("../images/night/storm.png", import.meta.url).href,
   },
 ];
+
+export const defaultWeatherOptions = {
+  day: {
+    url: new URL("../images/day/default.png", import.meta.url).href,
+  },
+  night: {
+    url: new URL("../images/night/default.png", import.meta.url).href,
+  },
+};
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -82,7 +91,7 @@ export const defaultClothingItems = [
   {
     _id: 3,
     name: "Sneakers",
-    weather: "cold",
+    weather: "warm",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sneakers.png?etag=3efeec41c1c78b8afe26859ca7fa7b6f",
   },
   {
@@ -95,6 +104,18 @@ export const defaultClothingItems = [
     _id: 5,
     name: "Coat",
     weather: "cold",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
+  },
+  {
+    _id: 6,
+    name: "Hat",
+    weather: "cold",
+    link: "https://media.gq.com/photos/57dc23c0beed5f275b337e16/16:9/w_2560%2Cc_limit/fall-hats-gq-style-0816-01.jpg",
+  },
+  {
+    _id: 7,
+    name: "Coat",
+    weather: "hot",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
   },
 ];

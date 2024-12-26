@@ -6,6 +6,7 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
+import Footer from "../Footer/Footer";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -54,7 +55,7 @@ function App() {
             type="text"
             className="modal__input"
             id="name"
-            placeholder="name"
+            placeholder="Name"
           />
         </label>
         <label htmlFor="imageURL" className="modal__label">
@@ -93,6 +94,7 @@ function App() {
         card={selectedCard}
         onClose={closeActiveModal}
       />
+      <Footer />
     </div>
   );
 }
