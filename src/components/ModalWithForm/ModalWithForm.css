@@ -81,7 +81,11 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.modal__radio-input:checked + span {
+.modal__radio-input:checked {
+  color: rgba(0, 0, 0, 1);
+}
+
+.modal__radio-input:checked + .modal__label_type_radio {
   color: rgba(0, 0, 0, 1);
 }
 
