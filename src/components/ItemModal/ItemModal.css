@@ -1,4 +1,4 @@
-.modal__content_type_image {
+div.modal__content_type_image {
   position: relative;
   max-width: 498px;
   max-height: 610px;
@@ -29,7 +29,6 @@
 .modal__weather {
   font-size: 20px;
 }
-
 .modal__footer {
   padding: 0 32px;
 }

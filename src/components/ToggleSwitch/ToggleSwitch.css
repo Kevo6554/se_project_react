@@ -40,3 +40,11 @@
 .toggle__switch-box:checked ~ .toggle__switch-slider {
   left: 28px;
 }
+
+.toggle__switch-box:not(:checked) ~ .toggle__switch-text_f {
+  color: white;
+}
+
+.toggle__switch-box:checked ~ .toggle__switch-text_c {
+  color: white;
+}
