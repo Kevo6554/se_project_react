@@ -5,10 +5,8 @@ import ItemCard from "../ItemCard/ItemCard";
 function ClothesSection({ onCardClick }) {
   return (
     <div className="clothes__section">
-      <div>
-        <p>Your items</p>
-        <button>+ Add New</button>
-      </div>
+      <p className="clothes__section-item">Your items</p>
+      <button className="clothes__section-btn">+ Add New</button>
       <ul className="card__list">
         {defaultClothingItems.map((item) => {
           return (

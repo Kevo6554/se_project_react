@@ -1,0 +1,19 @@
+.clothes__section {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.clothes__section-btn {
+  opacity: 0.6;
+  border: none;
+  line-height: 24px;
+  font-size: 20px;
+}
+
+.clothes__section-item {
+  font-size: 20px;
+  line-height: 24px;
+}
