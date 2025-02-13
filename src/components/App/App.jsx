@@ -12,6 +12,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { deleteCard, getItems, addItems } from "../../utils/api";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -31,9 +32,8 @@ function App() {
   };
 
   const handleDeleteCard = () => {
-    const id = selectedCard._id;
     deleteCard(selectedCard._id)
-      .then(() => {
+      .then((data) => {
         setClothingItems(clothingItems.filter((item) => item._id !== id));
         selectedCard([]);
         closeActiveModal();
@@ -53,7 +53,7 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleAddItemModalSubmit = (name, imageUrl, weather) => {
+  const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     //const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
     return addItems({ name, weather, imageUrl })
       .then((data) => {
@@ -114,7 +114,11 @@ function App() {
           isOpen={activeModal === "preview"}
           card={selectedCard}
           onClose={closeActiveModal}
+        />
+        <DeleteModal
+          isOpen={activeModal === "delete__modal"}
           onDeleteClick={handleDeleteCard}
+          onClose={closeActiveModal}
         />
         <Footer />
       </div>

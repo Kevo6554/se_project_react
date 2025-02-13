@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 
-function ItemModal({ isOpen, onClose, card }) {
+function ItemModal({ isOpen, onClose, card, onDeleteClick }) {
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
       <div

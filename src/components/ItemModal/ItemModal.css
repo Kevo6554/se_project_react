@@ -41,4 +41,5 @@ div.modal__content_type_image {
   position: absolute;
   left: 350px;
   bottom: 60px;
+  cursor: pointer;
 }

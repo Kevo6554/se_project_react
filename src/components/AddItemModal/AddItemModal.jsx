@@ -8,19 +8,22 @@ export default function AddItemModal({
   onAddItemModalSubmit,
 }) {
   const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
   // const handleNameChange = (e) => {setNAme(e.target.value)}
   // const handleImageChange = (e) => {setImage(e.target.value)}
   const handleWeatherChange = (e) => {
     setWeather(e.target.value);
   };
+  const handleImageUrl = (e) => {
+    setImageUrl(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemModalSubmit(name, image, weather);
+    onAddItemModalSubmit({ name, imageUrl, weather });
     setName("");
-    setImage("");
+    setImageUrl("");
     setWeather("");
   };
   return (
@@ -52,11 +55,8 @@ export default function AddItemModal({
           className="modal__input"
           id="imageURL"
           placeholder="Image URL"
-          onChange={(e) => {
-            setImage(e.target);
-            value = { image };
-            //handleImageChange
-          }}
+          value={imageUrl}
+          onChange={handleImageUrl}
         />
       </label>
       <fieldset className="modal__radio-buttons">
