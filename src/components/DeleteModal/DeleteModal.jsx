@@ -4,7 +4,7 @@ function DeleteModal({
   card,
   onClose,
   handleDeleteCard,
-  onDeleteClick,
+
   isOpen,
 }) {
   return (
@@ -24,7 +24,7 @@ function DeleteModal({
             irreversible.
             {card}
             <button
-              onClick={onDeleteClick}
+              onDeleteClick={handleDeleteCard}
               type="submit"
               className="delete__modal-btn"
             >
