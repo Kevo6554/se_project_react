@@ -3,7 +3,7 @@ import "./DeleteModal.css";
 function DeleteModal({
   card,
   onClose,
-  handleDeleteCard,
+  onDeleteClick,
 
   isOpen,
 }) {
@@ -24,7 +24,7 @@ function DeleteModal({
             irreversible.
             {card}
             <button
-              onDeleteClick={handleDeleteCard}
+              onClick={onDeleteClick}
               type="submit"
               className="delete__modal-btn"
             >
