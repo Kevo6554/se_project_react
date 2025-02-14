@@ -31,20 +31,19 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
-  const handleCardDelete = (card) => {
-    const cardId = card.id;
+  const handleCardDelete = () => {
+    const cardId = selectedCard._id;
     deleteCard(cardId)
       .then(() => {
-        setClothingItems(clothingItems.filter((item) => item.id !== cardId));
-
+        setClothingItems(clothingItems.filter((item) => item._id !== cardId));
         closeActiveModal();
+        setSelectedCard({});
       })
       .catch(console.error);
   };
 
   const openConfirmationModal = () => {
     setActiveModal("confirm");
-    selectedCard(card);
   };
 
   const handleAddClick = () => {

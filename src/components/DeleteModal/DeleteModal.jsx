@@ -1,12 +1,6 @@
 import "./DeleteModal.css";
 
-function DeleteModal({
-  card,
-  onClose,
-  openConfirmationModal,
-
-  isOpen,
-}) {
+function DeleteModal({ card, onClose, handleDeleteCard, isOpen }) {
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
       <div
@@ -26,7 +20,7 @@ function DeleteModal({
         </h2>
         <div className="delete__modal-footer">
           <button
-            onClick={() => openConfirmationModal(card)}
+            onClick={() => handleDeleteCard()}
             type="submit"
             className="delete__modal-btn"
           >
