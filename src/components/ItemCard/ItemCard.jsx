@@ -16,5 +16,5 @@ function ItemCard({ item, onCardClick }) {
     </li>
   );
 }
-
+console.log(imageUrl);
 export default ItemCard;
