@@ -118,7 +118,7 @@ function App() {
         <AddItemModal
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
-          onAddItemModalSubmit={handleAddItemModalSubmit}
+          addItems={handleAddItemModalSubmit}
         />
         <ItemModal
           isOpen={activeModal === "preview"}

@@ -2,11 +2,7 @@ import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-export default function AddItemModal({
-  onClose,
-  isOpen,
-  onAddItemModalSubmit,
-}) {
+export default function AddItemModal({ onClose, isOpen, addItems }) {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -21,10 +17,13 @@ export default function AddItemModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemModalSubmit({ name, imageUrl, weather });
-    setName("");
-    setImageUrl("");
-    setWeather("");
+    addItems({ name, imageUrl, weather })
+      .then(() => {
+        setName("");
+        setImageUrl("");
+        setWeather("");
+      })
+      .catch(console.error);
   };
   return (
     <ModalWithForm
