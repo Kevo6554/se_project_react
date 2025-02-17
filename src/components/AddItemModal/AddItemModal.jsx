@@ -41,7 +41,7 @@ export default function AddItemModal({ onClose, isOpen, addItems }) {
           id="name"
           placeholder="Name"
           onChange={(e) => {
-            setName(e.target);
+            setName(e.target.value);
           }}
           value={name}
           //handleNAmeChange

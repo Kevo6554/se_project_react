@@ -109,6 +109,7 @@ function App() {
                 <Profile
                   clothingItems={clothingItems}
                   onCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
                 />
               }
             />
