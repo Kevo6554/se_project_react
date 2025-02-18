@@ -65,6 +65,12 @@
       "imageUrl": "  https://www.crazysocks.com/cdn/shop/products/rainbow-stripe-mens-socks_1200x.jpg?v=1586210507",
       "weather": "cold",
       "_id": 17
+    },
+    {
+      "name": "Face",
+      "imageUrl": "https://www.shutterstock.com/shutterstock/photos/1581230398/display_1500/stock-photo-portrait-of-pretty-woman-dark-hair-blue-eyes-womans-face-portrait-of-beautiful-woman-portrait-1581230398.jpg",
+      "weather": "cold",
+      "_id": 18
     }
   ]
 }

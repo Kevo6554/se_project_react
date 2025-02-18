@@ -21,6 +21,7 @@
   border-radius: 50%;
   left: 0;
   transition: all 1s;
+  overflow: auto;
 }
 
 .toggle__switch-text_f {
@@ -34,7 +35,8 @@
 .toggle__switch-text {
   color: grey;
   position: absolute;
-  top: 5px;
+  top: 4px;
+  font-size: 14px;
 }
 
 .toggle__switch-box:checked ~ .toggle__switch-slider {
