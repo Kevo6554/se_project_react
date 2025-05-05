@@ -1,8 +1,16 @@
 import "./ClothesSection.css";
 import { defaultClothingItems } from "../../utils/constant";
 import ItemCard from "../ItemCard/ItemCard";
+import { CurrentUserContext } from "../../context/CreateUserContext";
+import { useContext } from "react";
 
-function ClothesSection({ onCardClick, clothingItems, handleAddClick }) {
+function ClothesSection({
+  onCardClick,
+  clothingItems,
+  handleAddClick,
+  handleCardLike,
+}) {
+  const currentUser = useContext(CurrentUserContext);
   return (
     <div className="clothes__section">
       <div className="clothes__section-title">
@@ -18,7 +26,12 @@ function ClothesSection({ onCardClick, clothingItems, handleAddClick }) {
       <ul className="card__list">
         {clothingItems.map((item) => {
           return (
-            <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+            <ItemCard
+              key={item._id}
+              item={item}
+              onCardClick={onCardClick}
+              handleCardLike={handleCardLike}
+            />
           );
         })}
       </ul>

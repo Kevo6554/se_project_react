@@ -1,0 +1,19 @@
+.modal__button-container {
+  margin: 0;
+  width: 0;
+  height: 0;
+}
+
+.modal__login {
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  background-color: transparent;
+  padding: 0;
+  width: 80px;
+  height: 40px;
+  margin-left: 130px;
+  margin-top: 32px;
+}
