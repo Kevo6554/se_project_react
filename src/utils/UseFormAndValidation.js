@@ -1,33 +1,28 @@
-import { useState, useCallback } from "react";
+import { useEffect } from "react";
 
-export function useFormAndValidation() {
-  const [values, setValues] = useState({});
-  const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(true);
+function useModalClose(isOpen, onClose) {
+  useEffect(() => {
+    if (!isOpen) return;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: e.target.validationMessage });
-    setIsValid(e.target.closest("form").checkValidity());
-  };
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
 
-  const reserForm = useCallback(
-    (newValues = {}, newErrors = {}, newIsValid = false) => {
-      setValues(newValues);
-      setErrors(newErrors);
-      setIsValid(newIsValid);
-    },
-    [setValues, setErrors, setIsvalid]
-  );
+    const handleOverlay = (e) => {
+      if (e.target.classList.contains("modal")) {
+        onClose();
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("mousedown", handleOverlay);
 
-  return {
-    values,
-    handleChange,
-    errors,
-    isValid,
-    resetForm,
-    setValues,
-    setIsValid,
-  };
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("mousedown", handleOverlay);
+    };
+  }, [isOpen]);
 }
+
+export default useModalClose;

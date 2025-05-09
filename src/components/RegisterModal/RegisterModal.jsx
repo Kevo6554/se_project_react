@@ -13,7 +13,7 @@ function RegisterModal({
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
-  const hanleEmailChange = (e) => {
+  const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
@@ -50,7 +50,6 @@ function RegisterModal({
       altButtonText="or Log in"
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      formValid={isValid}
       onClose={onClose}
     >
       <label className="modal__label" htmlFor="email-register">
@@ -61,9 +60,10 @@ function RegisterModal({
         id="email-register"
         name="email"
         type="email"
-        value={values.email || ""}
-        onChange={handleChange}
+        placeholder="Email"
+        onChange={handleEmailChange}
         required
+        value={email}
       />
       <label className="modal__label" htmlFor="password-register">
         Password *
@@ -73,9 +73,10 @@ function RegisterModal({
         id="password-register"
         name="password"
         type="password"
-        value={values.password || ""}
-        onChange={handleChange}
+        value={password}
+        onChange={handlePasswordChange}
         required
+        placeholder="Password"
       />
       <label className="modal__label" htmlFor="name-register">
         Name *
@@ -85,9 +86,10 @@ function RegisterModal({
         id="name-register"
         name="name"
         type="text"
-        value={values.name || ""}
-        onChange={handleChange}
+        value={name}
+        onChange={handleNameChange}
         required
+        placeholder="Name"
       />
 
       <label className="modal__label" htmlFor="avatar-register">
@@ -98,8 +100,10 @@ function RegisterModal({
         id="avatar-register"
         name="avatar"
         type="text"
-        value={values.avatar || ""}
-        onChange={handleChange}
+        value={avatar}
+        onChange={handleAvatarChange}
+        required
+        pattern="Avatar url"
       />
       <div className="modal__button-container">
         <button type="button" className="modal__login" onClick={handleLogIn}>

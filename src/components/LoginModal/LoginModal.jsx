@@ -39,15 +39,8 @@ const LoginModal = ({
       buttonText={isLoading ? "Logging in..." : "Login"}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      formValid={isValid}
       onClose={onClose}
     >
-      <img
-        src={closeButton}
-        alt="Close"
-        className="modal__close-button"
-        onClick={onClose}
-      />
       <label className="modal__label" htmlFor="email-login">
         Email
       </label>

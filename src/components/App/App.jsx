@@ -41,6 +41,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -127,6 +128,7 @@ function App() {
   };
 
   const handleLogin = ({ email, password }) => {
+    setIsLoading(true);
     logIn({ email, password })
       .then((res) => {
         if (!res.token) throw new Error("Token not received");
@@ -141,11 +143,19 @@ function App() {
       });
   };
 
-  const handleRegister = (userData) => {
-    registerUser(userData)
-      .then(() =>
-        handleLogin({ email: userData.email, password: userData.password })
-      )
+  const handleRegister = ({ name, avatar, email, password }) => {
+    setIsLoading(true);
+    registerUser({ name, avatar, email, password })
+      .then(() => handleLogin({ email, password }))
+      .then((res) => {
+        localStorage.setItem("jwt", res.token);
+        return getUserProfile(res.token);
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
+        setIsLoggedIn(true);
+        closeActiveModal();
+      })
       .catch((err) => {
         console.error("Registration Error:", err);
         alert(err);

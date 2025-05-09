@@ -1,10 +1,10 @@
 import "./ItemModal.css";
 import { CurrentUserContext } from "../../context/CreateUserContext";
 import { useContext } from "react";
-import { useFormAndValidation } from "../../utils/UseFormAndValidation";
+import useModalClose from "../../utils/UseFormAndValidation";
 
 function ItemModal({ isOpen, onClose, card, onDeleteClick }) {
-  useFormAndValidation(isOpen, onClose);
+  useModalClose(isOpen, onClose);
 
   const currentUser = useContext(CurrentUserContext);
 
