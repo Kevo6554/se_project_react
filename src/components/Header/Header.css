@@ -35,3 +35,28 @@
   text-decoration: none;
   color: black;
 }
+
+.header__button-login {
+  margin: 0 20px 0 auto;
+  background-color: #f3f3f3;
+  border-style: none;
+  cursor: pointer;
+}
+
+.header__button-register {
+  background-color: #f3f3f3;
+  border-style: none;
+  cursor: pointer;
+}
+
+.header__button-logout {
+  background-color: #f3f3f3;
+  border-style: none;
+  cursor: pointer;
+}
+
+.header__mobile-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
