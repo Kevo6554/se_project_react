@@ -197,15 +197,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getItems()
-      .then((data) => {
-        console.log(data);
-        setClothingItems(data);
-      })
-      .catch(console.error);
-  }, []);
-
-  useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
       getUserProfile(token)
@@ -231,7 +222,7 @@ function App() {
               handleAddClick={handleAddClick}
               weatherData={weatherData}
               isLoggedIn={isLoggedIn}
-              onSignUp={handleRegisterModal}
+              handleRegistration={handleRegisterModal}
               handleLogin={handleLoginModal}
             />
             <Routes>

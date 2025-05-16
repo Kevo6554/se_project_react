@@ -93,7 +93,7 @@ function RegisterModal({
       />
 
       <label className="modal__label" htmlFor="avatar-register">
-        Avatar URL
+        Avatar URL *
       </label>
       <input
         className="modal__input"
@@ -103,7 +103,7 @@ function RegisterModal({
         value={avatar}
         onChange={handleAvatarChange}
         required
-        pattern="Avatar url"
+        placeholder="Avatar url"
       />
       <div className="modal__button-container">
         <button type="button" className="modal__login" onClick={handleLogIn}>
