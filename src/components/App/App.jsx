@@ -268,7 +268,7 @@ function App() {
           />
           <RegisterModal
             isOpen={activeModal === "signup"}
-            onRegister={handleRegister}
+            handleRegistration={handleRegister}
             isLoading={isLoading}
             onClose={closeActiveModal}
             handleLogin={handleLoginModal}
