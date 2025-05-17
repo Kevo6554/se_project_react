@@ -1,7 +1,4 @@
 .modal__button-container {
-  margin: 0;
-  width: 0;
-  height: 0;
 }
 
 .modal__login {
@@ -14,6 +11,5 @@
   padding: 0;
   width: 80px;
   height: 40px;
-  margin-left: 130px;
-  margin-top: 32px;
+  margin: 5px 0 0;
 }

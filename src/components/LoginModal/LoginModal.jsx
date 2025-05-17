@@ -70,12 +70,15 @@ const LoginModal = ({
         required
       />
       <div className="modal__button-container">
+        <button className="modal__submit" type="submit">
+          Login
+        </button>
         <button
           type="button"
           className="modal__register"
           onClick={handleRegisterClick}
         >
-          Signup
+          Or Signup
         </button>
       </div>
     </ModalWithForm>

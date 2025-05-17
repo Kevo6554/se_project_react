@@ -106,8 +106,11 @@ function RegisterModal({
         placeholder="Avatar url"
       />
       <div className="modal__button-container">
+        <button type="submit" className="modal__submit">
+          Sign up
+        </button>
         <button type="button" className="modal__login" onClick={handleLogIn}>
-          Login
+          or Login
         </button>
       </div>
     </ModalWithForm>
