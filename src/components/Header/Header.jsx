@@ -22,7 +22,7 @@ function Header({
 
   const isLoggedIn = !!currentUser?._id;
 
-  const toggleMenu = () => setIsMenuOpen(!isMenu);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
     <header className="header">
       <Link to="/">

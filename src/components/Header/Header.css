@@ -60,3 +60,11 @@
   align-items: center;
   margin-left: auto;
 }
+
+.header__mobile-menu_close {
+  display: none;
+}
+
+.header__menu-button {
+  display: none;
+}
