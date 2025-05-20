@@ -14,7 +14,7 @@ function Header({
   handleSignOut,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -22,7 +22,7 @@ function Header({
 
   const isLoggedIn = !!currentUser?._id;
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleMenu = () => setIsMenuOpen(!isMenu);
   return (
     <header className="header">
       <Link to="/">

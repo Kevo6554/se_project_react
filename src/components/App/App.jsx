@@ -210,7 +210,7 @@ function App() {
           setIsLoggedIn(false);
         });
     }
-  });
+  }, []);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <CurrentTemperatureUnitContext.Provider
@@ -275,10 +275,10 @@ function App() {
           />
           <LoginModal
             isOpen={activeModal === "login"}
-            onLogin={handleLogin}
+            handleLogin={handleLogin}
             isLoading={isLoading}
             onClose={closeActiveModal}
-            onSignUp={handleRegisterModal}
+            handleRegisterClick={handleRegisterModal}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

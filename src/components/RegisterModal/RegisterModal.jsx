@@ -6,7 +6,7 @@ function RegisterModal({
   isOpen,
   onClose,
   isLoading,
-  handleLogIn,
+  handleLogin,
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,62 +54,66 @@ function RegisterModal({
     >
       <label className="modal__label" htmlFor="email-register">
         Email *
+        <input
+          className="modal__input"
+          id="email-register"
+          name="email"
+          type="email"
+          placeholder="Email"
+          onChange={handleEmailChange}
+          required
+          value={email}
+        />
       </label>
-      <input
-        className="modal__input"
-        id="email-register"
-        name="email"
-        type="email"
-        placeholder="Email"
-        onChange={handleEmailChange}
-        required
-        value={email}
-      />
       <label className="modal__label" htmlFor="password-register">
         Password *
+        <input
+          className="modal__input"
+          id="password-register"
+          name="password"
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          required
+          placeholder="Password"
+        />
       </label>
-      <input
-        className="modal__input"
-        id="password-register"
-        name="password"
-        type="password"
-        value={password}
-        onChange={handlePasswordChange}
-        required
-        placeholder="Password"
-      />
       <label className="modal__label" htmlFor="name-register">
         Name *
+        <input
+          className="modal__input"
+          id="name-register"
+          name="name"
+          type="text"
+          value={name}
+          onChange={handleNameChange}
+          required
+          placeholder="Name"
+        />
       </label>
-      <input
-        className="modal__input"
-        id="name-register"
-        name="name"
-        type="text"
-        value={name}
-        onChange={handleNameChange}
-        required
-        placeholder="Name"
-      />
 
       <label className="modal__label" htmlFor="avatar-register">
         Avatar URL *
+        <input
+          className="modal__input"
+          id="avatar-register"
+          name="avatar"
+          type="text"
+          value={avatar}
+          onChange={handleAvatarChange}
+          required
+          placeholder="Avatar url"
+        />
       </label>
-      <input
-        className="modal__input"
-        id="avatar-register"
-        name="avatar"
-        type="text"
-        value={avatar}
-        onChange={handleAvatarChange}
-        required
-        placeholder="Avatar url"
-      />
       <div className="modal__button-container">
-        <button type="submit" className="modal__submit">
+        <button
+          type="submit"
+          className="modal__submit"
+          onClick={handleRegistration}
+        >
           Sign up
         </button>
-        <button type="button" className="modal__login" onClick={handleLogIn}>
+        <button type="button" className="modal__login" onClick={handleLogin}>
           or Login
         </button>
       </div>

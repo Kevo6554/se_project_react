@@ -22,8 +22,7 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(values);
-    resetForm({ email: "", password: "" });
+    handleLogin({ email, password });
   };
 
   useEffect(() => {
@@ -43,32 +42,33 @@ const LoginModal = ({
     >
       <label className="modal__label" htmlFor="email-login">
         Email
+        <input
+          className="modal__input"
+          id="email-login"
+          name="email"
+          type="email"
+          minLength="4"
+          maxLength="64"
+          placeholder="Email"
+          value={email}
+          onChange={handleEmailChange}
+          required
+        />
       </label>
-      <input
-        className="modal__input"
-        id="email-login"
-        name="email"
-        type="email"
-        minLength="4"
-        maxLength="64"
-        placeholder="Email"
-        value={email}
-        onChange={handleEmailChange}
-        required
-      />
       <label className="modal__label" htmlFor="password-login">
         Password
+        <input
+          className="modal__input"
+          id="password-login"
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={handlePasswordChange}
+          required
+        />
       </label>
-      <input
-        className="modal__input"
-        id="password-login"
-        name="password"
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={handlePasswordChange}
-        required
-      />
+
       <div className="modal__button-container">
         <button className="modal__submit" type="submit">
           Login
