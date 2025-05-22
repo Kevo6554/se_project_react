@@ -11,6 +11,9 @@ function ClothesSection({
   handleCardLike,
 }) {
   const currentUser = useContext(CurrentUserContext);
+  const userCards = clothingItems.filter(
+    (card) => card.owner === currentUser?._id
+  );
   return (
     <div className="clothes__section">
       <div className="clothes__section-title">
