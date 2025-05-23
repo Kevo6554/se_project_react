@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { coordinates, APIkey } from "../../utils/constant";
 import "./App.css";
+import { api } from "../../utils/api.js";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import { defaultClothingItems } from "../../utils/constant";
@@ -11,14 +12,7 @@ import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnitC
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import {
-  getItems,
-  addItems,
-  deleteItems,
-  editProfile,
-  addCardLike,
-  removeCardLike,
-} from "../../utils/api";
+
 import DeleteModal from "../DeleteModal/DeleteModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -162,7 +156,7 @@ function App() {
       });
   };
 
-  const handleSignout = () => {
+  const handleSignOut = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser(null);
@@ -186,6 +180,15 @@ function App() {
       document.removeEventListener("keydown", handleEscClose);
     };
   }, [activeModal]); // watch activeModal here
+
+  useEffect(() => {
+    api
+      .getItems()
+      .then((data) => {
+        setClothingItems(data.reverse());
+      })
+      .catch(console.error);
+  }, []);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -245,7 +248,7 @@ function App() {
                       clothingItems={clothingItems}
                       onCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
-                      handleSignout={handleSignout}
+                      handleSignOut={handleSignOut}
                       handleEditModal={handleEditModal}
                       handleCardLike={handleCardLike}
                     />

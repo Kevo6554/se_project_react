@@ -4,7 +4,7 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(checkRes);
 }
 
-function checkRes(res) {
+export function checkRes(res) {
   return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
 }
 
@@ -69,10 +69,10 @@ function deleteItems(id, token) {
   }).then(checkRes);
 }
 
-export {
+export const api = {
   addItems,
   getItems,
-  checkRes,
+
   deleteCard,
   editProfile,
   addCardLike,
