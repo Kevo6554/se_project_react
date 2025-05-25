@@ -133,7 +133,7 @@ function App() {
         setCurrentUser(user);
         setIsLoggedIn(true);
         navigate("/profile");
-        closeActiveModal;
+        closeActiveModal();
       });
   };
 
