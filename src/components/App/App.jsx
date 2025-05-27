@@ -4,7 +4,7 @@ import "./App.css";
 import { api } from "../../utils/api.js";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import { defaultClothingItems } from "../../utils/constant";
+
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import Footer from "../Footer/Footer";
@@ -45,7 +45,9 @@ function App() {
 
   const handleCardDelete = () => {
     const cardId = selectedCard._id;
-    deleteItems(cardId)
+    const token = localStorage.getItem("jwt");
+    api
+      .deleteCard(cardId, token)
       .then(() => {
         setClothingItems(clothingItems.filter((item) => item._id !== cardId));
         closeActiveModal();
@@ -103,9 +105,10 @@ function App() {
   };
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     const token = localStorage.getItem("jwt");
-    if (!token)
+    if (token)
       //const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-      return addItems({ name, weather, imageUrl }).then((data) => {
+      api.addItems({ name, weather, imageUrl, token }).then((data) => {
+        console.log(data);
         setClothingItems([data, ...clothingItems]);
         closeActiveModal();
       });

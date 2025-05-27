@@ -17,13 +17,11 @@ export default function AddItemModal({ onClose, isOpen, addItems }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addItems({ name, imageUrl, weather })
-      .then(() => {
-        setName("");
-        setImageUrl("");
-        setWeather("");
-      })
-      .catch(console.error);
+    addItems({ name, imageUrl, weather });
+
+    setName("");
+    setImageUrl("");
+    setWeather("");
   };
   return (
     <ModalWithForm
@@ -66,9 +64,9 @@ export default function AddItemModal({ onClose, isOpen, addItems }) {
             type="radio"
             className="modal__radio-input"
             name="weather"
-            value="Hot"
+            value="hot"
             onChange={handleWeatherChange}
-            checked={weather === "Hot"}
+            checked={weather === "hot"}
           />
           <span>Hot</span>
         </label>

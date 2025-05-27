@@ -11,7 +11,6 @@ function Header({
   weatherData,
   handleRegistration,
   handleLogin,
-  handleSignOut,
 }) {
   const currentUser = useContext(CurrentUserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -56,13 +55,7 @@ function Header({
             >
               + Add clothes
             </button>
-            <button
-              onClick={handleSignOut}
-              type="button"
-              className="header__button-logout"
-            >
-              Log Out
-            </button>
+
             <Link to="/profile" className="header__link">
               <div className="header__user-container">
                 <p className="header__username">{currentUser?.name}</p>

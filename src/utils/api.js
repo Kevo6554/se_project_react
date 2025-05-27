@@ -8,7 +8,7 @@ export function checkRes(res) {
   return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
 }
 
-function addItems({ name, imageUrl, weather }) {
+function addItems({ name, imageUrl, weather, token }) {
   console.log("Adding item:", { name, imageUrl, weather });
   return fetch(`${baseUrl}/items`, {
     headers: {
@@ -20,7 +20,7 @@ function addItems({ name, imageUrl, weather }) {
   }).then(checkRes);
 }
 
-function deleteCard(cardId) {
+function deleteCard(cardId, token) {
   return fetch(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
     headers: {
@@ -55,7 +55,7 @@ function removeCardLike(cardId, token) {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer{token}`,
+      Authorization: `Bearer ${token}`,
     },
   }).then(checkRes);
 }
