@@ -1,7 +1,7 @@
 import "./ModalWithForm.css";
 function ModalWithForm({
   children,
-  buttonText,
+
   title,
   isOpen,
   onClose,

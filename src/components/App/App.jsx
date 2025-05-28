@@ -107,11 +107,14 @@ function App() {
     const token = localStorage.getItem("jwt");
     if (token)
       //const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-      api.addItems({ name, weather, imageUrl, token }).then((data) => {
-        console.log(data);
-        setClothingItems([data, ...clothingItems]);
-        closeActiveModal();
-      });
+      api
+        .addItems({ name, weather, imageUrl, token })
+        .then((data) => {
+          console.log(data);
+          setClothingItems([data, ...clothingItems]);
+          closeActiveModal();
+        })
+        .catch(console.error);
   };
 
   const handleEditProfile = ({ name, avatar }) => {
@@ -260,6 +263,11 @@ function App() {
               />
             </Routes>
           </div>
+          <ItemCard
+            item={item}
+            onCardClick={handleCardClick}
+            handleCardLike={handleCardLike}
+          />
 
           <AddItemModal
             isOpen={activeModal === "add-garment"}

@@ -47,6 +47,10 @@ function EditProfileModal({ isOpen, onClose, onSubmit }) {
           required
         />
       </label>
+
+      <button type="submit" className="modal__submit">
+        Save Changes
+      </button>
     </ModalWithForm>
   );
 }
