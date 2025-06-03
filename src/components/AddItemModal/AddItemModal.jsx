@@ -15,16 +15,14 @@ export default function AddItemModal({ onClose, isOpen, addItems }) {
     setImageUrl(e.target.value);
   };
 
-  const handleSubmit =
-    ((e) => {
-      e.preventDefault();
-      addItems({ name, imageUrl, weather });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addItems({ name, imageUrl, weather });
 
-      setName("");
-      setImageUrl("");
-      setWeather("");
-    },
-    [isOpen]);
+    setName("");
+    setImageUrl("");
+    setWeather("");
+  };
   return (
     <ModalWithForm
       title="New garment"

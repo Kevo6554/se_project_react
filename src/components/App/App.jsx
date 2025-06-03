@@ -64,7 +64,7 @@ function App() {
 
   const handleRegisterModal = () => setActiveModal("signup");
 
-  const handleEditModal = () => setActiveModal("editprofile");
+  const handleEditClick = () => setActiveModal("edit-profile");
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -255,7 +255,7 @@ function App() {
                       onCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       handleSignOut={handleSignOut}
-                      handleEditModal={handleEditModal}
+                      handleEditClick={handleEditClick}
                       handleCardLike={handleCardLike}
                     />
                   </ProtectedRoute>
@@ -263,11 +263,6 @@ function App() {
               />
             </Routes>
           </div>
-          <ItemCard
-            item={item}
-            onCardClick={handleCardClick}
-            handleCardLike={handleCardLike}
-          />
 
           <AddItemModal
             isOpen={activeModal === "add-garment"}
@@ -279,6 +274,7 @@ function App() {
             card={selectedCard}
             onClose={closeActiveModal}
             onDeleteClick={openConfirmationModal}
+            handleCardLike={handleCardLike}
           />
           <RegisterModal
             isOpen={activeModal === "signup"}
