@@ -107,19 +107,16 @@ function App() {
     const token = localStorage.getItem("jwt");
     if (token)
       //const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-      api
-        .addItems({ name, weather, imageUrl, token })
-        .then((data) => {
-          console.log(data);
-          setClothingItems([data, ...clothingItems]);
-          closeActiveModal();
-        })
-        .catch(console.error);
+      return api.addItems({ name, weather, imageUrl, token }).then((data) => {
+        console.log(data);
+        setClothingItems([data, ...clothingItems]);
+        closeActiveModal();
+      });
   };
 
   const handleEditProfile = ({ name, avatar }) => {
     const token = localStorage.getItem("jwt");
-    editProfile({ name, avatar }, token)
+    handleEditClick({ name, avatar }, token)
       .then((updatedUser) => {
         setCurrentUser((prevUser) => ({ ...prevUser, ...updatedUser }));
         closeActiveModal();
@@ -140,7 +137,8 @@ function App() {
         setIsLoggedIn(true);
         navigate("/profile");
         closeActiveModal();
-      });
+      })
+      .catch(console.error);
   };
 
   const handleRegister = ({ name, avatar, email, password }) => {
@@ -257,6 +255,7 @@ function App() {
                       handleSignOut={handleSignOut}
                       handleEditClick={handleEditClick}
                       handleCardLike={handleCardLike}
+                      onEditProfile={handleEditProfile}
                     />
                   </ProtectedRoute>
                 }
@@ -293,10 +292,11 @@ function App() {
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             onClose={closeActiveModal}
-            onEditProfile={handleEditProfile}
+            onUpdateUser={handleEditProfile}
           />
           <DeleteModal
             isOpen={activeModal === "confirm"}
+            isLoggedIn={isLoggedIn}
             handleDeleteCard={handleCardDelete}
             onClose={closeActiveModal}
           />

@@ -7,8 +7,9 @@ function ItemModal({ isOpen, onClose, card, onDeleteClick }) {
   useModalClose(isOpen, onClose);
 
   const currentUser = useContext(CurrentUserContext);
-
+  console.log(isOpen);
   const isOwn = card.owner === currentUser?._id;
+
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
       <div
@@ -25,9 +26,15 @@ function ItemModal({ isOpen, onClose, card, onDeleteClick }) {
           <h2 className="modal__caption">{card.name}</h2>
           <p className="modal__weather">Weather: {card.weather}</p>
         </div>
-        <button className="modal__delete" type="button" onClick={onDeleteClick}>
-          Delete Item
-        </button>
+        {isOwn && (
+          <button
+            className="modal__delete"
+            type="button"
+            onClick={onDeleteClick}
+          >
+            Delete Item
+          </button>
+        )}
       </div>
     </div>
   );
