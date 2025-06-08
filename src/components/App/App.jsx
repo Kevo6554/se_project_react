@@ -116,7 +116,8 @@ function App() {
 
   const handleEditProfile = ({ name, avatar }) => {
     const token = localStorage.getItem("jwt");
-    handleEditClick({ name, avatar }, token)
+    api
+      .editProfile({ name, avatar }, token)
       .then((updatedUser) => {
         setCurrentUser((prevUser) => ({ ...prevUser, ...updatedUser }));
         closeActiveModal();
