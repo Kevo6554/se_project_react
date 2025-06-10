@@ -119,7 +119,8 @@ function App() {
     api
       .editProfile({ name, avatar }, token)
       .then((updatedUser) => {
-        setCurrentUser((prevUser) => ({ ...prevUser, ...updatedUser }));
+        //setCurrentUser((prevUser) => ({ ...prevUser, ...updatedUser.data }));
+        setCurrentUser(updatedUser.data);
         closeActiveModal();
       })
       .catch(console.error);

@@ -18,7 +18,11 @@ export default function AddItemModal({ onClose, isOpen, addItems }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     addItems({ name, imageUrl, weather })
-      .then(setName(""), setImageUrl(""), setWeather(""))
+      .then(() => {
+        setName("");
+        setImageUrl("");
+        setWeather("");
+      })
       .catch(console.error);
   };
   return (
